@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} Sentiment Analysis</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Welcome To Sentiment Analyzer</h1>
+    <form method="POST" id="sentiment-form">
+        <textarea name="text1" placeholder="Say Something: ...." rows="10" cols="109"></textarea><br><br>
+        <input class="example_a" type="submit">
+    </form>
+
+    <!-- Loader -->
+    <div id="loader" class="loader" style="display: none;"></div>
+
+    {% if final %}
+    <div>
+        <h2>The Sentiment of</h2> '{{ text1 }}' <h2>is {{ final *100 }}% positive!</h2>
+        <h2>Score Table</h2>
+        <table style="width:100%">
+            <tr>
+                <th>SENTIMENT METRIC</th>
+                <th>SCORE</th> 
+            </tr>
+            <tr>
+                <td>Positive</td>
+                <td>{{text2}}</td>
+            </tr>
+            <tr>
+                <td>Neutral</td>
+                <td>{{text3}}</td>
+            </tr>
+            <tr>
+                <td>Negative</td>
+                <td>{{text5}}</td>
+            </tr>
+            <tr>
+                <td>Compound</td>
+                <td>{{text4}}</td>
+            </tr>
+        </table>
+    </div>
+    {% else %}
+    <p></p>
+    {% endif %}
+
+    <script>
+        document.getElementById("sentiment-form").addEventListener("submit", function(event){
+            // Show the loader when the form is submitted
+            document.getElementById("loader").style.display = "block";
+        });
+    </script>
+</body>
+</html>

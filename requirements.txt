@@ -1,0 +1,14 @@
+click
+Flask
+Flask-WTF
+gunicorn
+itsdangerous
+Jinja2
+MarkupSafe
+vaderSentiment
+six
+Werkzeug
+WTForms
+nltk
+scikit-learn
+requests
